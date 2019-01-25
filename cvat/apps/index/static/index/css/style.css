@@ -1,0 +1,123 @@
+body,html{font-family: "microsoft YaHei"}
+
+.main {
+    width: 971px;
+    zoom: 1;
+    margin: 100px auto;
+}
+
+.main h2{
+    text-align: center;
+    font-size:28px;
+    color:#666;
+    text-align: center;
+}
+
+.main .table-integral{
+    margin: auto auto;
+}
+
+.page_btn {
+    padding-top: 40px;
+    text-align: center;
+}
+
+.page_btn a {
+    cursor: pointer;
+    padding: 10px 17px;
+    border: solid 1px #dbdbdb;
+    font-size: 14px;
+}
+
+.num {
+    padding: 0 10px;
+}
+
+.page_btn a:hover,.page-item:hover{
+    color: #fff;
+    background: #e84c3d;
+    border: 1px solid #e84c3d;
+}
+
+.page-item {
+    padding: 10px 17px;
+    text-decoration: none;
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    color: #666666;
+    margin: 0 3px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.page-item.current {
+    color: #fff;
+    background: #e84c3d;
+    cursor: pointer;
+    border: 1px solid #e84c3d;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.table-integral thead {
+    background: #f7f7f7;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 14px;
+    color: #333;
+}
+.table-integral td {
+    border: 1px solid #e5e5e5;
+    border-collapse: collapse;
+}
+.table-integral tbody {
+    height: 45px;
+    line-height: 45px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    line-height: 45px;
+}
+.table-integral td {
+    border: 1px solid #e5e5e5;
+    border-collapse: collapse;
+}
+.text-green {
+    color: #00a65a !important;
+}
+.text-red {
+    color: #dd4b39 !important;
+}
+.table-integral td a, .table-integral td a:hover, .table-integral td a:active, .table-integral td a:visited, .table-integral td a:focus {
+    color: #0099cc;
+    cursor: pointer;
+    text-decoration: none;
+}
+.tips_info {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.5);
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    line-height: 60px;
+    display: none;
+    padding: 0 30px;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 250px;
+    height: 60px;
+}
+
+
+.btn:hover{
+    background-color: darkgrey;
+    color: antiquewhite;
+}

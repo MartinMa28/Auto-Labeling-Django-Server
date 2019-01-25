@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>AI-Master</title>
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'index/css/style.css' %}" />
+    <script type="text/javascript" src="{% static 'index/js/jquery.min.js' %}"></script>
+</head>
+
+<body>
+
+
+
+<div class="main">
+    <h2>AI-MASTER DASHBOARD</h2>
+    <table class="table-integral">
+        <thead class="thead">
+            <tr>
+                <td style="width:250px;">Dataset</td>
+                <td style="width:250px;">Type</td>
+                <td colspan="3" style="width:450px;">Operation</td>
+            </tr>
+        </thead>
+        <tbody class="tbody" id="content_page">
+            {% for table in tables %}
+            <tr>
+                <!-- <td>{{table.index}}</td> -->
+                <td>{{table.name}}</td>
+                <td>{{table.type}}</td>
+                <td><a class="text-green" href={{table.link}}>Annotation</a></td>
+                <td><a class="text-green" href={{table.training_link}}>Training</a></td>
+                {% if 'Drug' in table.name or 'drug' in table.name %}
+                    <td><a class="text-green" href={{table.inference_link}}>Simulation</a></td>
+                {% else %}
+                    <td><a class="text-green" href={{table.inference_link}}>Inference</a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div id="wrap" class="page_btn clear"></div>
+</div><!--main-->
+
+<script type="text/javascript" src="{% static 'index/js/page.js' %}"></script>
+</body>
+</html>

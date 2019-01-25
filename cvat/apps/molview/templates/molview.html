@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>3D Views</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+      <!-- Boostrap 4 -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <!-- Boostrap 4 -->
+      
+      <link rel="stylesheet" type="text/css" media="screen" href="../static/css/styles.css" />
+      <script src="../static/js/jquery.min.js"></script>
+      <script src="../static/js/script.js"></script>
+</head>
+<body>
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="{% url 'ai-master-dashboard' %}">AI-Master Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                        <li class="nav-item active">
+                              <a class="nav-link" href="{% url 'ai-master-dashboard' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                              <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                              <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                              <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>
+                  </ul>
+            </div> -->
+      </nav>
+      <div class="container">
+            <div class="row">
+                  <div class="title-container col-12">
+                        <h1 class="text-center">Drug Molecule 3D Models</h1>
+                  </div>
+            </div>
+            <div class="row">
+                  <div class="smiles-list-container col-8">
+                        <table class="table table-hover table-bordered">
+                              <thead>
+                                    <tr>
+                                          <!-- <th colspan="3">Compounds in SMILES:</th> -->
+                                          <th class="w-30">Label</th>
+                                          <th class="w-40">SMILES String</th>
+                                          <th class="w-20">3D Models</th>
+                                          <th class="w-20">Actions</th>
+                                    </tr>
+                              </thead>
+                              <tbody>
+                                    {% for label, smiles, index in smiles_list %}
+                                          <tr>
+                                                <td class="label-{{ index }}"> {{label}} </td>
+                                                <td class="smiles-string-{{ index }}" data-smiles="{{ smiles }}"> {{ smiles }} </td>
+                                                <td><button class="molview-btn btn btn-sm" data-index="{{ index }}">check 3D model</button></td>
+                                                <td><button class="label-btn btn btn-sm" data-index="{{ index }}">change this label</button></td>
+                                          </tr>
+                                    {% endfor %}
+                              </tbody>
+                        </table>
+                  </div>
+            
+                  <div class="iframe-container col-4">
+                        <div id="molecule-viewer">
+                              <iframe style="width: 500px; height: 300px;" frameborder="0" src="https://embed.molview.org/v1/?mode=balls"></iframe>
+                              <img src="../static/img/periodic_table.png" alt="periodic talbe" width="520" height="292">
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+</body>
+</html>

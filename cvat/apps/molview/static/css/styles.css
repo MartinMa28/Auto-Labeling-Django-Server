@@ -1,0 +1,16 @@
+.table th{
+      text-align: center;
+}
+
+.table td {
+      text-align: center;   
+}
+
+.btn:hover{
+      background-color: darkgrey;
+      color: antiquewhite;
+}
+
+#molecule-viewer{
+      position: fixed;
+}
