@@ -145,3 +145,43 @@ volumes:
 ```
 You can change the share device path to your actual share. For user convenience we have defined the enviroment variable $CVAT_SHARE_URL. This variable contains a text (url for example) which will be being shown in the client-share browser. -->
 # Auto-Labeling-Django-Server
+
+### Install [Docker CE](https://www.docker.com/community-edition) or [Docker EE](https://www.docker.com/enterprise-edition) from official site
+
+Please read official manual [here](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/).
+
+### Install docker-compose (1.19.0 or newer)
+
+```bash
+sudo pip install docker-compose
+```
+
+### Build docker images
+
+To build all necessary docker images run `docker-compose build` command. By default, in production mode the tool uses PostgreSQL as database, Redis for caching.
+
+### Run containers
+To start all containers run `docker-compose up -d` command. Go to [localhost:8080](http://localhost:8080/). You should see a login page.
+
+### Create superuser account
+
+You can [register a user](http://localhost:8080/auth/register) but by default it will not have rights even to view list of tasks. Thus you should create a superuser. The superuser can use admin panel to assign correct groups to the user. Please use the command below:
+
+```bash
+docker exec -it cvat sh -c '/usr/bin/python3 ~/manage.py createsuperuser'
+```
+
+### Advanced settings
+
+If you want to access you instance of CVAT outside of your localhost you should specify [ALLOWED_HOSTS](https://docs.djangoproject.com/en/2.0/ref/settings/#allowed-hosts) environment variable. The best way to do that is to create [docker-compose.override.yml](https://docs.docker.com/compose/extends/) and put all your extra settings here.
+
+```yml
+version: "2.3"
+
+services:
+  cvat:
+    environment:
+      ALLOWED_HOSTS: .example.com
+    ports:
+      - "80:8080"
+```
