@@ -146,6 +146,10 @@ volumes:
 You can change the share device path to your actual share. For user convenience we have defined the enviroment variable $CVAT_SHARE_URL. This variable contains a text (url for example) which will be being shown in the client-share browser. -->
 # Auto-Labeling-Django-Server
 
+## LICENSE
+
+Code released under the [MIT License](https://opensource.org/licenses/MIT).
+
 ### Install [Docker CE](https://www.docker.com/community-edition) or [Docker EE](https://www.docker.com/enterprise-edition) from official site
 
 Please read official manual [here](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/).
